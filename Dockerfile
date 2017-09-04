@@ -12,7 +12,7 @@ RUN apk add --no-cache --update \
     git build-base
 
 # Set working directory
-WORKDIR /opt/poloniexlendingbot
+WORKDIR /opt/poloniex-lending-bot
 
 # Git clone Poloniex Lending Bot and checkout to the specified hash
 RUN git clone https://github.com/BitBotFactory/poloniexlendingbot . && \
@@ -25,7 +25,7 @@ RUN pip --no-cache-dir install -r requirements.txt
 EXPOSE 8000
 
 # Add volume for configuration file
-VOLUME ["/opt/poloniexlendingbot/default.cfg"]
+VOLUME ["/opt/poloniex-lending-bot/default.cfg"]
 
 # Set entrypoint to source code main script
 ENTRYPOINT ["python", "lendingbot.py"]
